@@ -1,0 +1,29 @@
+<%-include("../partials/header");%>	
+<div class="container">
+<header class="jumbotron">
+	<h1>Welcome to RevPedia:)</h1>
+	<p>View all the places</p>
+	<p><a href="/campgrounds/new"><button class="btn btn-primary btn-lg">Add a new Place</button></a></p>
+	<form action="/campgrounds" method="GET">
+		<div class="form-group">
+			<input class="form-control" name="search" type="text" placeholder="Search a place">
+		</div>
+		<button class="btn btn-primary">Seach</button>
+	</form>	
+</header>
+
+<div class="row" style="display:flex;flex-wrap:wrap;">
+<%campgrounds.forEach(function(camp){%>
+	<div class="col-md-3 col-sm-6">
+		<div>
+			<img src="data:image/<%=camp.image.contentType%>;base64,<%=camp.image.data.toString('base64')%>" class="img-thumbnail" style="height:180px; width:240px;">
+		</div>
+		<div class="caption">
+			<h4><%=camp.name%></h4>
+		</div>
+		<a href="/campgrounds/<%=camp._id%>">More info</a>
+	</div>		
+<%});%>
+</div>
+</div>
+<%-include("../partials/footer.ejs");%>
