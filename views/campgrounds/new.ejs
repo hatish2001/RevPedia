@@ -1,0 +1,36 @@
+<%-include("../partials/header.ejs");%>
+<style>
+body{
+
+background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+</style>
+<div class="container">
+	<div class="row" style="width:50%; margin:0 auto;" >
+	<h1 style:"text-align:center;">Add a New Location</h1>
+	<div style="width:80%;margin:0 auto; margin:25px;">
+		<form action="/campgrounds" method="POST" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="title">Title of the camp</label>
+				<input class="form-control" type="text" name="title" placeholder"Enter the name of the campground">
+			</div>
+			<div class="form-group">
+				<label for="image">Image URL</label>
+				<input class="form-control-file" type="file" name="image" placeholder="Upload image">
+			</div>
+			<div class="form-group">
+				<label for="desc">Add a description :)</label>
+				<input class="form-control" type="text" name="desc" placeholder="Enter Desc">
+			</div>
+			<div class="form-group">
+				<label for="price">Enter the average price </label>
+				<input class="form-control" type="number" name="price" placeholder="Enter Average price">
+			</div>
+			<button class="btn btn-primary btn-sm btn-block">Submit</button>
+		</form>
+		<a href="/campgrounds">Go back</a>`
+	</div>
+	</div>
+</div>
+<%- include("../partials/footer.ejs");%>

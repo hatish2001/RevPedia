@@ -1,0 +1,76 @@
+<%-include("../partials/header.ejs");%>
+<link rel="stylesheet" type="text/css" href="../css/stars.css">
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/stas.css">
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<p class="lead">Yelp Camp</p>
+			<div class="list-group">
+				<li class="list-group-item active">Info 1</li>
+				<li class="list-group-item">Info 1</li>
+				<li class="list-group-item">Info 1</li>
+
+			<h4> Add a rating!</h4>
+    		<form method="POST" action="/campgrounds/<%=campground._id%>/rating>
+  			<fieldset class="starability-basic"> 
+    		<input type="radio" id="rate5" name="rating[rating]" value="5" />
+    		<input type="radio" id="rate4" name="rating[rating]" value="4" />
+    		<input type="radio" id="rate3" name="rating[rating]" value="3" />
+    		<input type="radio" id="rate2" name="rating[rating]" value="2" />
+    		<input type="radio" id="rate1" name="rating[rating]" value="1" />
+ 	 		</fieldset><br>
+ 	 		<button class="btn btn-primary">Submit Rating</button>
+			</form>
+			<div>
+                Current Rating: <%= campground.rating.toFixed(2) %>
+            </div>
+		</div>
+		</div>
+		
+			<div class="col-md-9">
+				<div class="card">
+					<img src="data:image/<%=campground.image.contentType%>;base64,<%=campground.image.data.toString('base64')%>" class="img-thumbnail" style="height:500px"; width:340px;>
+					<div class="caption-full">
+						<h4 class="float-right">RS.<%=campground.price%></h4>
+						<h4><%=campground.name%></h4>
+						<p><%=campground.description%></p>
+						<p>Submitted By: <a href="/getuser/<%= campground.author.id %>"><%=campground.author.username%></b></a></p>
+						<p class="float-right"><%=moment(campground.createdat).fromNow()%></p>
+						<%if(currentUser && campground.author.id.equals(currentUser._id)){%>
+							<a class="btn btn-warning" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
+							<form action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST" id="delete" style="dispay:inline;margin:5px;">
+								<button class="btn btn-danger">Delete</button>
+								<h5 class="float-right"><a href="/campgrounds">Go to main page</a></h5>
+							</form>
+						<%}%>
+					</div>
+				</div>
+					<div class="card card-body bg-light">
+						<form action="/campgrounds/<%=campground._id%>/comment" method="GET">
+							<button type="submit" class="btn btn-success">Add a new comment</button>
+						</form>
+						<%campground.comments.forEach(function(comment){%>
+						<div class="row">
+								<div class="col-md-12">
+								<hr>
+								<b><%=comment.author.username%></b>
+								<p><%=comment.text%></p>
+								<%if(currentUser && comment.author.id.equals(currentUser._id)){%>
+								<a class="btn btn-warning" href="/campgrounds/<%=campground._id%>/comment/<%=comment._id%>/edit" id="editComment">Edit</a>
+								<span class="float-right"><%=moment(comment.createdat).fromNow()%></span>
+								<form action="/campgrounds/<%=campground._id%>/comment/<%=comment._id%>?_method=DELETE" method="POST" id="deleteComment">
+								<button class="btn btn-danger" type="submit">Delete</button>
+								</form>
+							<%}%>
+								</div>
+						</div>
+						<%});%>
+					</div>
+			</div>
+	</div>
+</div>
+<%-include("../partials/footer");%>
