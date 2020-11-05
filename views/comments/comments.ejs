@@ -1,0 +1,19 @@
+<%-include("../partials/header");%>
+<style>
+body{
+
+background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="/css/stars.css">
+<div class="container">
+<form action="/campground/<%=campground._id%>/comment" method="POST">
+			<div class="form-group" style="width:50%; margin:0 auto;">
+				<label for="comment[text]">Enter your comment</label>
+				<input class="form-control" type="text" name="comment[text]" placeholder"Enter the name of the campground">
+			</div>
+			<button class="btn-primary btn-md btn-block" style="width:50%; margin:0 auto;">Add comment</button>
+</form>
+</div>
+<%-include("../partials/footer");%>
