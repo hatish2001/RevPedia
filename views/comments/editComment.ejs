@@ -1,0 +1,18 @@
+<%-include ("../partials/header.ejs");%>
+<style>
+body{
+
+background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+</style>
+<div class="container">
+	<form action="/campgrounds/<%=id%>/comment/<%=comment._id%>/edit?_method=PUT" method="POST">
+			<div class="form-group" style="width:50%; margin:0 auto;">
+				<label for="comment[text]">Edit your comment </label>
+				<input class="form-control" type="text" name="comment" value=<%=comment.text%>>
+			</div>
+			<button class="btn-primary btn-md btn-block" style="width:50%; margin:0 auto;">Add comment</button>
+</form>
+</div>
+<%-include("../partials/footer");%>
