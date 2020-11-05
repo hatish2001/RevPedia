@@ -1,8 +1,11 @@
-# RevPedia
+# RevPedia(A review Website)
 
 ## Install dependencies
 * To install all the frameworks used 
     * Use npm install 
+    * Install mongodb
+    * Run mongod in another terminal and node app.js in the terminal with the project.
+    * Then go to localhost:3000 to view website 
  
  ## Built With    
  * Frontend
