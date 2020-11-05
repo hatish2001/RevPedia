@@ -1,0 +1,21 @@
+<%-include("partials/header.ejs");%>
+<div class="container">
+
+<h1 style="margin-left:400px;">Notifications</h1>
+
+<ul>
+	<% allNotifications.forEach(function(notification) { %>
+	<div class="card">
+	<div class="shadow border-5"
+	<li>
+		<a href="/campgrounds/<%= notification.campgroundId %>">
+			<%= notification.username %> Added a new review  %>
+		</a>
+	</li>
+	</div>
+	</div>
+	<% }); %>
+</ul>
+</div>
+
+<%include("partials/header.ejs")%>

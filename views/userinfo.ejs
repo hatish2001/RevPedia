@@ -1,0 +1,26 @@
+<%-include("partials/header.ejs");%>
+<div class="container">
+<div class="row">
+	<div class="col-md-3">
+		<div class="card shadow-sm d-none d-md-block" id="firstusercard">
+				<img src="data:image/<%=founduser.image.contentType%>;base64,<%=founduser.image.data.toString('base64')%>" class="card-img-top" style="width:max-width;height:220px;">
+				<p class="secondusercardheadings" style = "text-transform:capitalize;"><%=founduser.name%></p>
+				<a href="/follow/<%= founduser.id %>"><button class="btn btn-primary">Follow <%= founduser.username %></button></a>
+				<p class="secondusercardheadings"><%=founduser.noofcamps%> Campgrounds</p>
+				<p class="secondusercardheadings"><%=founduser.noofcomments%> Comments</p>
+				<p class="secondusercardheadings"><%=founduser.followers.length%> Followers</p>
+		</div>
+		<div class="shadow border-10" id="secondusercard">
+						<p class="card-header text">Your profile</p>
+						<p class="secondusercardheadings"><i class="fas fa-envelope"></i> Email:<br><a href="mailto:<%=founduser.email%>"><%=founduser.email%></a></p>
+						<hr>
+						<p class="secondusercardheadings"><i class="fas fa-phone"></i> Phone:<br><%=founduser.phoneno%></p>
+		</div>
+
+	</div>
+</div>
+</div>
+
+
+
+<%include("partials/header.ejs")%>

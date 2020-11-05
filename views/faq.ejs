@@ -1,0 +1,30 @@
+<%-include("partials/header.ejs");%>
+<style>
+body{
+
+background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+button{
+	margin:10px;
+}
+.btn-danger{
+	width:100px;
+}
+</style>
+<div class="container">
+	<h1 style="margin-left:500px">FAQ</h1>
+<div class="card">
+	<%faq.forEach(function(faq){%>
+	<div class="card">
+		<h4><b><%=faq.name%>-</b></h4><%=faq.question%>
+		<button class="btn btn-sm btn-danger">Reply</button>
+
+	</div>
+	<%}) %>
+
+
+
+</div>
+<button class="btn btn-primary btn-md"><a href="/newfaq" style="color:white">Add a new Query </a></button>
+</div>
+<%-include("partials/footer");%>
