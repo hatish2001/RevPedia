@@ -1,0 +1,15 @@
+#aboutcard{
+	margin-left: 200px;
+	width: 80%;
+	margin-top: 50px;
+	z-index: 1;
+	position: absolute;
+}
+#aboutname{
+	background:#007bf;
+}
+body{
+	font-family: 'Open Sans', sans-serif;
+	background: url('https://images.unsplash.com/photo-1547532182-bf296f6be875?ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80');
+	z-index: -1;
+}
