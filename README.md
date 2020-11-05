@@ -1,5 +1,36 @@
 # RevPedia
 
+## Install dependencies
+* To install all the frameworks used 
+    * Use npm install 
+ 
+ ## Built With    
+ * Frontend
+    * ejs
+    * Html
+    * CSS
+    * Bootstrap
+    * angular
+    * Javascript
+ * Backend
+    * express
+    * mongoDB
+    * mongoose
+    * async
+    * crypto
+    * helmet
+    * passport
+    * passport-local
+    * express-session
+    * method-override
+    * nodemailer
+    * moment
+    * multer
+    * geocoder
+    * connect-flash
+    
+    
+    
 ## Features
 * Authentication:
      * User login with username and password
