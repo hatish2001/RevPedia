@@ -1,0 +1,28 @@
+.bg-light{
+	margin-top:20px;
+}
+.card{
+	padding: 10px;
+}
+body{
+	margin:0;
+}
+.btn-warning{
+	width:9%;
+}
+
+.delete{
+	display: inline;
+}
+#deleteComment{
+	display:inline;
+}
+#editComment{
+	width:10%;
+}
+.nav-link{
+	color:white;
+}
+.navbar-brand{
+	color:white;
+}
