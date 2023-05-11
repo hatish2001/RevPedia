@@ -1,4 +1,5 @@
 # RevPedia(A review Website)
+This website is a clone of the YELP website with a personal take on it. Built using the MERN stack
 
 ## Install dependencies
 * To install all the frameworks used 
